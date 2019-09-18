@@ -9,16 +9,16 @@ export interface OverflowMenuDropdownItemProps extends React.HTMLProps<HTMLDivEl
   /** Additional classes added to the OverflowMenuDropdown */
   className?: string;
   /** Indicates when a dropdown item shows and hides the corresponding list item */
-  shared?: boolean;
+  isShared?: boolean;
 }
 
 export const OverflowMenuDropdownItem: React.SFC<OverflowMenuDropdownItemProps> = ({
   className,
   children,
-  shared = false
+  isShared = false
 }) => (
   <DropdownItem
-    wrapperClass={css(shared && styles.overflowMenuSharedItem)}
+    wrapperClass={css(isShared && styles.overflowMenuSharedItem)}
     component="button"
   >
     {children}
