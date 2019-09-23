@@ -352,6 +352,11 @@ export const Demos: DemoInterface[] = [
     componentType: Examples.OuiaDemo
   },
   {
+    id: 'overflow-menu-demo',
+    name: 'Overflow Menu Demo',
+    componentType: Examples.OverflowMenuDemo
+  },
+  {
     id: 'page-demo',
     name: 'Page Demo',
     componentType: Examples.PageDemo
