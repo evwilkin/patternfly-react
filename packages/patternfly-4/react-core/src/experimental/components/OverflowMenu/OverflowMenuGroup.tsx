@@ -22,8 +22,8 @@ export const OverflowMenuGroup: React.SFC<OverflowMenuGroupProps> = ({
   ...props
 }) => (
   <OverflowMenuContext.Consumer>
-    {value => (isPersistent || !value.isBelowBreakpoint) && (
-      <div className={css(
+    {value => (
+      <div hidden={value.isBelowBreakpoint && !isPersistent} className={css(
         styles.overflowMenuGroup,
         groupType === 'button' && styles.modifiers.buttonGroup,
         groupType === 'icon' && styles.modifiers.iconButtonGroup,

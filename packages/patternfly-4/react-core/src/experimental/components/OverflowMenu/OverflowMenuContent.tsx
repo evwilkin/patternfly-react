@@ -18,9 +18,9 @@ export const OverflowMenuContent: React.SFC<OverflowMenuContentProps> = ({
   isPersistent
 }) => (
   <OverflowMenuContext.Consumer>
-    {value => (!value.isBelowBreakpoint || isPersistent) && (
-      <div className={css(styles.overflowMenuContent, className)}>
-          { children }
+    {value => (
+      <div hidden={value.isBelowBreakpoint && !isPersistent} className={css(styles.overflowMenuContent, className)}>
+        { children }
       </div>
     )}
   </OverflowMenuContext.Consumer>
