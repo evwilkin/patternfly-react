@@ -27,6 +27,7 @@ interface ChartBulletThemeInterface {
 const getLegendColorScale = (computedData: any, legendData: any) => {
   const colorScale: string[] = [];
   legendData.forEach((data: any, index: number) => {
+    // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let i = 0; i < computedData.length; i++) {
       if (index === computedData[i]._index) {
         colorScale.push(computedData[i]._color);

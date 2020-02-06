@@ -4,6 +4,7 @@ import { Chart } from '../Chart';
 import { ChartBar } from '../ChartBar';
 import { ChartStack } from './ChartStack';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 Object.values([true, false]).forEach(isRead => {
   test('ChartStack', () => {
     const view = shallow(<ChartStack />);

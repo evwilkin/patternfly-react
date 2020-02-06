@@ -119,6 +119,7 @@ export const ChartBulletGroupTitle: React.FunctionComponent<ChartBulletGroupTitl
   dividerComponent = <Line />,
   padding,
   standalone = true,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   subTitleComponent = <ChartLabel />,
   subTitle,
   themeColor,
@@ -130,6 +131,7 @@ export const ChartBulletGroupTitle: React.FunctionComponent<ChartBulletGroupTitl
   theme = getBulletGroupTitleTheme(themeColor, themeVariant),
   height = theme.chart.height,
   width = theme.chart.width,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ...rest
 }: ChartBulletGroupTitleProps) => {
   const defaultPadding = {

@@ -5,6 +5,7 @@ import { ChartAxis } from './ChartAxis';
 import { ChartGroup } from '../ChartGroup';
 import { ChartLine } from '../ChartLine';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 Object.values([true, false]).forEach(isRead => {
   test('ChartAxis', () => {
     const view = shallow(<ChartAxis />);

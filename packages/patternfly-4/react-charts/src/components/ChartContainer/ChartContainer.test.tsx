@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import { ChartContainer } from './ChartContainer';
 import { ChartLegend } from '../ChartLegend';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 Object.values([true, false]).forEach(isRead => {
   test('ChartContainer', () => {
     const view = shallow(<ChartContainer />);

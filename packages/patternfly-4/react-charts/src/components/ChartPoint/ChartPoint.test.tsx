@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import { ChartLegend } from '../ChartLegend';
 import { ChartPoint } from './ChartPoint';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 Object.values([true, false]).forEach(isRead => {
   test('ChartPoint', () => {
     const view = shallow(<ChartLegend dataComponent={<ChartPoint />} />);

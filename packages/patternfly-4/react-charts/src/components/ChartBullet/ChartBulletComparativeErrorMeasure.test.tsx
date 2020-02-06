@@ -2,6 +2,7 @@ import * as React from 'react';
 import { shallow } from 'enzyme';
 import { ChartBulletComparativeErrorMeasure } from './ChartBulletComparativeErrorMeasure';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 Object.values([true, false]).forEach(isRead => {
   test('ChartBulletComparativeErrorMeasure', () => {
     const view = shallow(<ChartBulletComparativeErrorMeasure />);

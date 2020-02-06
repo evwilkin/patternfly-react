@@ -2,6 +2,7 @@ import * as React from 'react';
 import { shallow } from 'enzyme';
 import { ChartDonutUtilization } from './ChartDonutUtilization';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 Object.values([true, false]).forEach(isRead => {
   test('ChartDonutUtilization', () => {
     const view = shallow(<ChartDonutUtilization />);

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { shallow } from 'enzyme';
 import { ChartBulletPrimarySegmentedMeasure } from './ChartBulletPrimarySegmentedMeasure';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 Object.values([true, false]).forEach(isRead => {
   test('ChartBulletPrimarySegmentedMeasure', () => {
     const view = shallow(<ChartBulletPrimarySegmentedMeasure />);

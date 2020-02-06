@@ -37,6 +37,7 @@ export const getComparativeMeasureErrorWidth = ({
   // destructure last
   theme = getBulletComparativeErrorMeasureTheme(themeColor, themeVariant)
 }: ChartBulletSizeInterface) =>
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   scaleBarWidth({
     defaultSize: theme.bar.height,
     height,
@@ -55,6 +56,7 @@ export const getComparativeMeasureWidth = ({
   // destructure last
   theme = getBulletComparativeMeasureTheme(themeColor, themeVariant)
 }: ChartBulletSizeInterface) =>
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   scaleBarWidth({
     defaultSize: theme.bar.height,
     height,
@@ -73,6 +75,7 @@ export const getComparativeMeasureWarningWidth = ({
   // destructure last
   theme = getBulletComparativeWarningMeasureTheme(themeColor, themeVariant)
 }: ChartBulletSizeInterface) =>
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   scaleBarWidth({
     defaultSize: theme.bar.height,
     height,
@@ -91,6 +94,7 @@ export const getPrimaryDotMeasureSize = ({
   // destructure last
   theme = getBulletPrimaryDotMeasureTheme(themeColor, themeVariant)
 }: ChartBulletSizeInterface) =>
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   scaleSize({
     defaultSize: theme.group.height,
     height,
@@ -109,6 +113,7 @@ export const getPrimarySegmentedMeasureWidth = ({
   // destructure last
   theme = getBulletPrimarySegmentedMeasureTheme(themeColor, themeVariant)
 }: ChartBulletSizeInterface) =>
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   scaleBarWidth({
     defaultSize: theme.group.height,
     height,
@@ -128,6 +133,7 @@ export const getQualitativeRangeBarWidth = ({
   // destructure last
   theme = getBulletQualitativeRangeTheme(themeColor, themeVariant)
 }: ChartBulletSizeInterface) =>
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   scaleBarWidth({
     defaultSize: theme.group.height,
     height,
@@ -136,6 +142,7 @@ export const getQualitativeRangeBarWidth = ({
     width
   });
 
+// eslint-disable-next-line no-shadow
 const scale = ({ defaultSize, height, horizontal = true, scale = 1, value, width }: ChartBulletScaleInterface) =>
   horizontal
     ? height > defaultSize

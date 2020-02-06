@@ -45,6 +45,7 @@ export const getCustomTheme = (
   themeColor: string,
   themeVariant: string,
   customTheme: ChartThemeDefinition
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
 ): ChartThemeDefinition => merge(getTheme(themeColor, themeVariant), customTheme);
 
 // Returns axis theme

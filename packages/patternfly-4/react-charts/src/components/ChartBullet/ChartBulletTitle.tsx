@@ -127,6 +127,7 @@ export const ChartBulletTitle: React.FunctionComponent<ChartBulletTitleProps> = 
   legendPosition = 'bottom' as ChartLegendPosition,
   padding,
   standalone = true,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   subTitleComponent = <ChartLabel />,
   subTitle,
   themeColor,
@@ -139,6 +140,7 @@ export const ChartBulletTitle: React.FunctionComponent<ChartBulletTitleProps> = 
   theme = getBulletTheme(themeColor, themeVariant),
   height = horizontal ? theme.chart.height : theme.chart.width,
   width = horizontal ? theme.chart.width : theme.chart.height,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ...rest
 }: ChartBulletTitleProps) => {
   const chartSize = {

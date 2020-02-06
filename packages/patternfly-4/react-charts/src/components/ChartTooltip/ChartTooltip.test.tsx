@@ -5,6 +5,7 @@ import { ChartGroup } from '../ChartGroup';
 import { ChartVoronoiContainer } from '../ChartVoronoiContainer';
 import { ChartTooltip } from './ChartTooltip';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 Object.values([true, false]).forEach(isRead => {
   test('ChartTooltip', () => {
     const view = shallow(<ChartTooltip text="This is a tooltip" />);
