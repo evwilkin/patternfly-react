@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Title } from '@patternfly/react-core/dist/js/components/Title/Title'
-import { PageSection, PageSectionVariants } from '@patternfly/react-core/dist/js/components/Page/PageSection'
+import { Title } from '@patternfly/react-core/dist/js/components/Title/Title';
+import { PageSection, PageSectionVariants } from '@patternfly/react-core/dist/js/components/Page/PageSection';
 import { SideNavLayout } from 'gatsby-theme-patternfly-org/layouts';
 
 const containerStyle = {
@@ -20,6 +20,7 @@ const centerStyle = {
   justifyContent: 'center'
 };
 
+// eslint-disable-next-line react/prop-types
 const IndexPage = ({ data, location }) => {
   const prInfo = data.allEnvVars.edges.filter(({ node }) => node.name === 'PR_INFO')[0].node;
 
