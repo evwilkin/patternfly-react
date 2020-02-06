@@ -17,6 +17,7 @@ export const PropertyItem: React.FunctionComponent<PropertyItemProps> = ({
   className = '',
   label,
   value = null,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   children,
   ...props
 }: PropertyItemProps) => {

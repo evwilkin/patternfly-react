@@ -1,7 +1,7 @@
 import * as React from 'react';
 import CogIcon from '@patternfly/react-icons/dist/js/icons/cog-icon';
 import OutlinedCheckCircleIcon from '@patternfly/react-icons/dist/js/icons/outlined-check-circle-icon';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 
 import { CatalogTile } from './CatalogTile';
 import { CatalogTileBadge } from './CatalogTileBadge';
@@ -13,6 +13,7 @@ test('CatalogTile renders properly', () => {
     return 'truncated';
   };
 
+  /* eslint-disable react/jsx-key */
   const component = mount(
     <div>
       <CatalogTile
@@ -129,6 +130,7 @@ test('CatalogTile renders properly', () => {
       />
     </div>
   );
+  /* eslint-enable react/jsx-key */
   expect(component).toMatchSnapshot();
 });
 
