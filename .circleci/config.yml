@@ -141,7 +141,7 @@ jobs:
         - *js_deps_cache_key
     - run:
         name: PF4 Jest Tests
-        command: yarn test:pf4 --maxWorkers=4
+        command: yarn test:pf4 --maxWorkers=2
     - run:
         name: Upload results to codecov
         command: yarn run codecov -F patternfly4
@@ -247,6 +247,7 @@ jobs:
                 echo "Breaking change above detected"
                 exit 1
             fi
+        when: always
   build_pf3_docs:
     docker:
     - image: circleci/node:10
