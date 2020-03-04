@@ -62,6 +62,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [5.3.9](https://github.com/patternfly/patternfly-react/compare/@patternfly/react-charts@5.3.8...@patternfly/react-charts@5.3.9) (2020-03-04)
+
+**Note:** Version bump only for package @patternfly/react-charts
+
+
+
+
+
 ## [5.3.8](https://github.com/patternfly/patternfly-react/compare/@patternfly/react-charts@5.3.7...@patternfly/react-charts@5.3.8) (2020-03-03)
 
 **Note:** Version bump only for package @patternfly/react-charts

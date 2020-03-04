@@ -43,6 +43,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.15.7](https://github.com/patternfly/patternfly-react/compare/@patternfly/react-icons@3.15.6...@patternfly/react-icons@3.15.7) (2020-03-04)
+
+**Note:** Version bump only for package @patternfly/react-icons
+
+
+
+
+
 ## [3.15.6](https://github.com/patternfly/patternfly-react/compare/@patternfly/react-icons@3.15.5...@patternfly/react-icons@3.15.6) (2020-03-04)
 
 **Note:** Version bump only for package @patternfly/react-icons
