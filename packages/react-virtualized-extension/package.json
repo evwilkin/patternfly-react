@@ -30,11 +30,6 @@
     "@patternfly/patternfly": "4.0.4",
     "@patternfly/react-core": "^4.2.0",
     "@patternfly/react-icons": "^4.0.3",
-    "@patternfly/react-styles": "^4.0.4",
-    "@types/react-virtualized": "^9.21.5",
-    "clsx": "^1.0.1",
-    "dom-helpers": "^2.4.0 || ^3.0.0",
-    "exenv": "^1.2.2",
     "linear-layout-vector": "0.0.1",
     "react-lifecycles-compat": "^3.0.4",
     "react-virtualized": "^9.21.1"
