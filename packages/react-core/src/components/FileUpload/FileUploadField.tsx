@@ -7,15 +7,21 @@ import { TextInput } from '../TextInput';
 import { Button, ButtonVariant } from '../Button';
 import { TextArea, TextAreResizeOrientation } from '../TextArea';
 import { Spinner, spinnerSize } from '../Spinner';
+import { fileReaderType } from '../../helpers/fileUtils';
+import { ValidatedOptions } from '../../helpers/constants';
 
-export interface FileUploadFieldProps extends Omit<React.HTMLProps<HTMLDivElement>, 'onChange'> {
+export interface FileUploadFieldProps extends Omit<React.HTMLProps<HTMLDivElement>, 'value' | 'onChange'> {
   /** Unique id for the TextArea, also used to generate ids for accessible labels */
   id: string;
-  /** Value of the file's contents */
-  value?: string;
+  /** What type of file. Determines what is is expected by `value`
+   * (a string for 'text' and 'dataURL', or a File object otherwise). */
+  type?: 'text' | 'dataURL';
+  /** Value of the file's contents
+   * (string if text file, File object otherwise) */
+  value?: string | File;
   /** Value to be shown in the read-only filename field. */
   filename?: string;
-  /** A callback for when the field value changes. */
+  /** A callback for when the TextArea value changes. */
   onChange?: (
     value: string,
     filename: string,
@@ -40,6 +46,8 @@ export interface FileUploadFieldProps extends Omit<React.HTMLProps<HTMLDivElemen
    * If set to error,  field will be modified to indicate error state.
    */
   validated?: 'success' | 'error' | 'default';
+  /** Message to display below the field for help or validation */
+  message?: string;
   /** Aria-label for the TextArea. */
   'aria-label'?: string;
   /** Placeholder string to display in the empty filename field */
@@ -51,11 +59,17 @@ export interface FileUploadFieldProps extends Omit<React.HTMLProps<HTMLDivElemen
   /** Text for the Clear button */
   clearButtonText?: string;
   /** Flag to disable the Clear button */
-  clearButtonDisabled?: boolean;
-  /** Flag to hide the TextArea. Use with children to add custom support for non-text files. */
-  hideTextArea?: boolean;
-  /** Additional children to render after (or instead of) the TextArea. */
+  isClearButtonDisabled?: boolean;
+  /** Flag to hide the built-in preview of the file (where available).
+   * If true, you can use children to render an alternate preview. */
+  hideDefaultPreview?: boolean;
+  /** Flag to allow editing of a text file's contents after it is selected from disk */
+  allowEditingUploadedText?: boolean;
+  /** Additional children to render after (or instead of) the file preview. */
   children?: React.ReactNode;
+
+  // Props available in FileUploadField but not FileUpload:
+
   /** A callback for when the Browse button is clicked. */
   onBrowseButtonClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   /** A callback for when the Clear button is clicked. */
@@ -63,16 +77,17 @@ export interface FileUploadFieldProps extends Omit<React.HTMLProps<HTMLDivElemen
   /** Flag to show if a file is being dragged over the field */
   isDragActive?: boolean;
   /** A reference object to attach to the FileUploadField container element. */
-  containerRef?: React.Ref<any>;
+  containerRef?: React.Ref<HTMLDivElement>;
 }
 
 export const FileUploadField: React.FunctionComponent<FileUploadFieldProps> = ({
   id,
+  type,
   value = '',
   filename = '',
-  onChange = (): any => undefined,
-  onBrowseButtonClick = (): any => undefined,
-  onClearButtonClick = (): any => undefined,
+  onChange = () => {},
+  onBrowseButtonClick = () => {},
+  onClearButtonClick = () => {},
   className = '',
   isDisabled = false,
   isReadOnly = false,
@@ -81,15 +96,17 @@ export const FileUploadField: React.FunctionComponent<FileUploadFieldProps> = ({
   isRequired = false,
   isDragActive = false,
   validated = 'default' as 'success' | 'error' | 'default',
+  message = null,
   'aria-label': ariaLabel = 'File upload',
   filenamePlaceholder = 'Drag a file here or browse to upload',
   filenameAriaLabel = filename ? 'Read only filename' : filenamePlaceholder,
   browseButtonText = 'Browse...',
   clearButtonText = 'Clear',
-  clearButtonDisabled = !filename && !value,
-  containerRef = null as React.Ref<any>,
+  isClearButtonDisabled = !filename && !value,
+  containerRef = null as React.Ref<HTMLDivElement>,
+  allowEditingUploadedText = false,
+  hideDefaultPreview = false,
   children = null,
-  hideTextArea = false,
   ...props
 }: FileUploadFieldProps) => {
   const onTextAreaChange = (newValue: string, event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -129,7 +146,7 @@ export const FileUploadField: React.FunctionComponent<FileUploadFieldProps> = ({
           </Button>
           <Button
             variant={ButtonVariant.control}
-            isDisabled={isDisabled || clearButtonDisabled}
+            isDisabled={isDisabled || isClearButtonDisabled}
             onClick={onClearButtonClick}
           >
             {clearButtonText}
@@ -137,9 +154,9 @@ export const FileUploadField: React.FunctionComponent<FileUploadFieldProps> = ({
         </InputGroup>
       </div>
       <div className={styles.fileUploadFileDetails}>
-        {!hideTextArea && (
+        {!hideDefaultPreview && type === fileReaderType.text && (
           <TextArea
-            readOnly={isReadOnly || !!filename} // A truthy filename means a real file, so no editing
+            readOnly={isReadOnly || (!!filename && !allowEditingUploadedText)}
             disabled={isDisabled}
             isRequired={isRequired}
             resizeOrientation={TextAreResizeOrientation.vertical}
@@ -147,7 +164,7 @@ export const FileUploadField: React.FunctionComponent<FileUploadFieldProps> = ({
             id={id}
             name={id}
             aria-label={ariaLabel}
-            value={value}
+            value={value as string}
             onChange={onTextAreaChange}
           />
         )}
@@ -156,8 +173,17 @@ export const FileUploadField: React.FunctionComponent<FileUploadFieldProps> = ({
             <Spinner size={spinnerSize.lg} aria-valuetext={spinnerAriaValueText} />
           </div>
         )}
-        {children}
       </div>
+      {children}
+      {message && (
+        <div
+          className={css(styles.fileUploadMessage, validated === ValidatedOptions.error && styles.modifiers.error)}
+          id={`${id}-message`}
+          aria-live="polite"
+        >
+          {message}
+        </div>
+      )}
     </div>
   );
 };

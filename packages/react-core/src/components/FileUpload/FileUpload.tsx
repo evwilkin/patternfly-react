@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Dropzone, { DropzoneProps } from 'react-dropzone';
+import Dropzone, { DropzoneProps, DropFileEventHandler } from 'react-dropzone';
 import { Omit } from '../../helpers';
 import { FileUploadField, FileUploadFieldProps } from './FileUploadField';
-import { readTextFile } from '../../helpers/fileUtils';
+import { readFile, fileReaderType } from '../../helpers/fileUtils';
 
 export interface FileUploadProps
   extends Omit<
@@ -11,13 +11,17 @@ export interface FileUploadProps
   > {
   /** Unique id for the TextArea, also used to generate ids for accessible labels. */
   id: string;
-  /** Value of the file's contents. */
-  value?: string;
+  /** What type of file. Determines what is is passed to `onChange` and expected by `value`
+   * (a string for 'text' and 'dataURL', or a File object otherwise. */
+  type?: 'text' | 'dataURL';
+  /** Value of the file's contents
+   * (string if text file, File object otherwise) */
+  value?: string | File;
   /** Value to be shown in the read-only filename field. */
   filename?: string;
   /** A callback for when the file contents change. */
   onChange?: (
-    value: string,
+    value: string | File,
     filename: string,
     event:
       | React.DragEvent<HTMLElement> // User dragged/dropped a file
@@ -41,6 +45,8 @@ export interface FileUploadProps
    * If set to error,  field will be modified to indicate error state.
    */
   validated?: 'success' | 'error' | 'default';
+  /** Message to display below the field for help or validation */
+  message?: string;
   /** Aria-label for the TextArea. */
   'aria-label'?: string;
   /** Placeholder string to display in the empty filename field */
@@ -51,8 +57,16 @@ export interface FileUploadProps
   browseButtonText?: string;
   /** Text for the Clear button */
   clearButtonText?: string;
-  /** Flag to hide the TextArea. */
-  hideTextArea?: boolean;
+  /** Flag to hide the built-in preview of the file (where available).
+   * If true, you can use children to render an alternate preview. */
+  hideDefaultPreview?: boolean;
+  /** Flag to allow editing of a text file's contents after it is selected from disk */
+  allowEditingUploadedText?: boolean;
+  /** Additional children to render after (or instead of) the file preview. */
+  children?: React.ReactNode;
+
+  // Props available in FileUpload but not FileUploadField:
+
   /** A callback for when a selected file starts loading */
   onReadStarted?: (fileHandle: File) => void;
   /** A callback for when a selected file finishes loading */
@@ -63,36 +77,43 @@ export interface FileUploadProps
   dropzoneProps?: DropzoneProps;
 }
 
-// TODO handle an optional message for errors without using FieldGroup
-
 export const FileUpload: React.FunctionComponent<FileUploadProps> = ({
   id,
-  value = '',
+  type,
+  value = type === fileReaderType.text || type === fileReaderType.dataURL ? '' : null,
   filename = '',
-  onChange = (): any => undefined,
-  onReadStarted = (): any => undefined,
-  onReadFinished = (): any => undefined,
-  onReadFailed = (): any => undefined,
+  children = null,
+  onChange = () => {},
+  onReadStarted = () => {},
+  onReadFinished = () => {},
+  onReadFailed = () => {},
   dropzoneProps = {},
   ...props
 }: FileUploadProps) => {
-  const onDropAccepted = async (acceptedFiles: File[], event: React.DragEvent<HTMLElement>) => {
+  const onDropAccepted: DropFileEventHandler = (acceptedFiles: File[], event: React.DragEvent<HTMLElement>) => {
     if (acceptedFiles.length > 0) {
       const fileHandle = acceptedFiles[0];
-      onChange('', fileHandle.name, event);
-      onReadStarted(fileHandle);
-      const result = (await readTextFile(fileHandle).catch((error: DOMException) => {
-        onReadFailed(error, fileHandle);
-        onReadFinished(fileHandle);
-        onChange('', '', event);
-      })) as string;
-      onReadFinished(fileHandle);
-      onChange(result, fileHandle.name, event);
+      if (type === fileReaderType.text || type === fileReaderType.dataURL) {
+        onChange('', fileHandle.name, event); // Show the filename while reading
+        onReadStarted(fileHandle);
+        readFile(fileHandle, type as fileReaderType)
+          .then(data => {
+            onReadFinished(fileHandle);
+            onChange(data as string, fileHandle.name, event);
+          })
+          .catch((error: DOMException) => {
+            onReadFailed(error, fileHandle);
+            onReadFinished(fileHandle);
+            onChange('', '', event); // Clear the filename field on a failure
+          });
+      } else {
+        onChange(fileHandle, fileHandle.name, event);
+      }
     }
     dropzoneProps.onDropAccepted && dropzoneProps.onDropAccepted(acceptedFiles, event);
   };
 
-  const onDropRejected = (rejectedFiles: File[], event: React.DragEvent<HTMLElement>) => {
+  const onDropRejected: DropFileEventHandler = (rejectedFiles: File[], event: React.DragEvent<HTMLElement>) => {
     if (rejectedFiles.length > 0) {
       onChange('', rejectedFiles[0].name, event);
     }
@@ -113,6 +134,7 @@ export const FileUpload: React.FunctionComponent<FileUploadProps> = ({
             onClick: event => event.preventDefault() // Prevents clicking TextArea from opening file dialog
           })}
           id={id}
+          type={type}
           filename={filename}
           value={value}
           onChange={onChange}
@@ -121,6 +143,7 @@ export const FileUpload: React.FunctionComponent<FileUploadProps> = ({
           onClearButtonClick={onClearButtonClick}
         >
           <input {...getInputProps()} /* hidden, necessary for react-dropzone */ />
+          {children}
         </FileUploadField>
       )}
     </Dropzone>
