@@ -3377,10 +3377,16 @@
     xmldoc "^1.1.2"
     yargs "^15.0.2"
 
+<<<<<<< HEAD
 "@patternfly/patternfly@4.0.4":
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/@patternfly/patternfly/-/patternfly-4.0.4.tgz#b4ba2db3d958c15a610e694a96d975e57e5a1db6"
   integrity sha512-ABfuvG0y0Z12Jtd8bxsfjWc9yt9jtQyWonuC0AKRktvn9bFULr7vWJ3Lg+PIXP5WUefPD7D+vGTz8SxdbWgLDA==
+=======
+"@patternfly/patternfly@2.66.0":
+  version "2.66.0"
+  resolved "https://registry.yarnpkg.com/@patternfly/patternfly/-/patternfly-2.66.0.tgz#18c15d299a3ad8777f052b809ab21ec2ba4f8546"
+>>>>>>> PF4: Drawer updates for Master/Detail Support (#3884)
 
 "@pieh/friendly-errors-webpack-plugin@1.7.0-chalk-2":
   version "1.7.0-chalk-2"
@@ -5270,6 +5276,21 @@ babel-plugin-named-asset-import@^0.3.0:
 babel-plugin-remove-graphql-queries@^2.7.23:
   version "2.7.23"
   resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-2.7.23.tgz#7cecb19b6057eb4de92d147dfd4d51c885cc356a"
+<<<<<<< HEAD
+=======
+
+babel-plugin-syntax-async-functions@^6.8.0:
+  version "6.13.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-syntax-async-functions/-/babel-plugin-syntax-async-functions-6.13.0.tgz#cad9cad1191b5ad634bf30ae0872391e0647be95"
+
+babel-plugin-syntax-async-generators@^6.5.0:
+  version "6.13.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-syntax-async-generators/-/babel-plugin-syntax-async-generators-6.13.0.tgz#6bc963ebb16eccbae6b92b596eb7f35c342a8b9a"
+
+babel-plugin-syntax-class-constructor-call@^6.18.0:
+  version "6.18.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-syntax-class-constructor-call/-/babel-plugin-syntax-class-constructor-call-6.18.0.tgz#9cb9d39fe43c8600bec8146456ddcbd4e1a76416"
+>>>>>>> PF4: Drawer updates for Master/Detail Support (#3884)
 
 babel-plugin-syntax-class-properties@^6.8.0:
   version "6.13.0"
