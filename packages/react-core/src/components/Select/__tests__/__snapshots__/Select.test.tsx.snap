@@ -2211,27 +2211,6 @@ exports[`select custom select filter filters properly 1`] = `
                   Mrs
                 </button>
               </li>
-              <li
-                role="presentation"
-              >
-                <button
-                  class="pf-c-select__menu-item"
-                  id="Other-2"
-                  role="option"
-                  type="button"
-                >
-                  Other
-                </button>
-              </li>
-            </ul>
-          </div>,
-        }
-      }
-      type="button"
-      variant="typeahead"
-    >
-      <div
-        className="pf-c-select__toggle pf-m-typeahead"
         onClick={[Function]}
         onKeyDown={[Function]}
       >
