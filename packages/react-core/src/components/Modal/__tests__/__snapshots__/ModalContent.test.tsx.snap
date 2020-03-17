@@ -3,6 +3,7 @@
 exports[`Modal Content Test description 1`] = `
 <Backdrop>
   <FocusTrap
+    _createFocusTrap={[Function]}
     active={true}
     className="pf-l-bullseye"
     focusTrapOptions={
@@ -11,6 +12,7 @@ exports[`Modal Content Test description 1`] = `
       }
     }
     paused={false}
+    tag="div"
   >
     <ModalBox
       className=""
