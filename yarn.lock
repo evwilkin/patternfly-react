@@ -5286,6 +5286,7 @@ babel-plugin-remove-graphql-queries@^2.7.23:
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
 babel-plugin-syntax-async-functions@^6.8.0:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-async-functions/-/babel-plugin-syntax-async-functions-6.13.0.tgz#cad9cad1191b5ad634bf30ae0872391e0647be95"
@@ -5299,6 +5300,8 @@ babel-plugin-syntax-class-constructor-call@^6.18.0:
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-class-constructor-call/-/babel-plugin-syntax-class-constructor-call-6.18.0.tgz#9cb9d39fe43c8600bec8146456ddcbd4e1a76416"
 >>>>>>> PF4: Drawer updates for Master/Detail Support (#3884)
 
+=======
+>>>>>>> chore(repo): remove unused packages (#3916)
 babel-plugin-syntax-class-properties@^6.8.0:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-class-properties/-/babel-plugin-syntax-class-properties-6.13.0.tgz#d7eb23b79a317f8543962c505b827c7d6cac27de"
@@ -7515,6 +7518,17 @@ create-ecdh@^4.0.0:
     bn.js "^4.1.0"
     elliptic "^6.0.0"
 
+<<<<<<< HEAD
+=======
+create-emotion-server@^9.2.12:
+  version "9.2.12"
+  resolved "https://registry.yarnpkg.com/create-emotion-server/-/create-emotion-server-9.2.12.tgz#30d82507bfe440bfb3dd6c9b5c8faf24597ee954"
+  dependencies:
+    html-tokenize "^2.0.0"
+    multipipe "^1.0.2"
+    through "^2.3.8"
+
+>>>>>>> chore(repo): remove unused packages (#3916)
 create-emotion@^9.2.12:
   version "9.2.12"
   resolved "https://registry.yarnpkg.com/create-emotion/-/create-emotion-9.2.12.tgz#0fc8e7f92c4f8bb924b0fef6781f66b1d07cb26f"
@@ -8728,6 +8742,15 @@ emojis-list@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
 
+<<<<<<< HEAD
+=======
+emotion-server@^9.2.9:
+  version "9.2.12"
+  resolved "https://registry.yarnpkg.com/emotion-server/-/emotion-server-9.2.12.tgz#aaaaa04843108943d1ce5a796e0bc40b06a3223e"
+  dependencies:
+    create-emotion-server "^9.2.12"
+
+>>>>>>> chore(repo): remove unused packages (#3916)
 emotion@^9.2.9:
   version "9.2.12"
   resolved "https://registry.yarnpkg.com/emotion/-/emotion-9.2.12.tgz#53925aaa005614e65c6e43db8243c843574d1ea9"
@@ -18329,6 +18352,7 @@ react-dropzone@9.0.0:
     prop-types "^15.6.2"
     prop-types-extra "^1.1.0"
 
+<<<<<<< HEAD
 react-emotion@^9.2.9:
   version "9.2.12"
   resolved "https://registry.yarnpkg.com/react-emotion/-/react-emotion-9.2.12.tgz#74d1494f89e22d0b9442e92a33ca052461955c83"
@@ -18339,6 +18363,8 @@ react-emotion@^9.2.9:
     prop-types "^15.6.2"
     prop-types-extra "^1.1.0"
 
+=======
+>>>>>>> chore(repo): remove unused packages (#3916)
 react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
