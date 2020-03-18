@@ -3412,11 +3412,6 @@
   resolved "https://registry.yarnpkg.com/@patternfly/patternfly/-/patternfly-4.0.4.tgz#b4ba2db3d958c15a610e694a96d975e57e5a1db6"
   integrity sha512-ABfuvG0y0Z12Jtd8bxsfjWc9yt9jtQyWonuC0AKRktvn9bFULr7vWJ3Lg+PIXP5WUefPD7D+vGTz8SxdbWgLDA==
 
-"@patternfly/react-tokens@^2.8.8":
-  version "2.8.8"
-  resolved "https://registry.yarnpkg.com/@patternfly/react-tokens/-/react-tokens-2.8.8.tgz#25edde60501708b8fe821f69ab1f284ac1b81814"
-  integrity sha512-W3Kx2zlbfFtcjL9mYpjWNU9RfNrFpfXI6zC8qQTuaDwhV3IHCWt5HCkcf9oIW2aCtEjC0EkI67Wbz0BcmdYGJA==
-
 "@pieh/friendly-errors-webpack-plugin@1.7.0-chalk-2":
   version "1.7.0-chalk-2"
   resolved "https://registry.yarnpkg.com/@pieh/friendly-errors-webpack-plugin/-/friendly-errors-webpack-plugin-1.7.0-chalk-2.tgz#2e9da9d3ade9d18d013333eb408c457d04eabac0"
@@ -7586,6 +7581,7 @@ create-ecdh@^4.0.0:
     elliptic "^6.0.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 create-emotion-server@^9.2.12:
   version "9.2.12"
@@ -7596,6 +7592,8 @@ create-emotion-server@^9.2.12:
     through "^2.3.8"
 
 >>>>>>> chore(repo): remove unused packages (#3916)
+=======
+>>>>>>> perf(react-styles): remove emotion, fix types (#3886)
 create-emotion@^9.2.12:
   version "9.2.12"
   resolved "https://registry.yarnpkg.com/create-emotion/-/create-emotion-9.2.12.tgz#0fc8e7f92c4f8bb924b0fef6781f66b1d07cb26f"
@@ -8810,6 +8808,7 @@ emojis-list@^2.0.0:
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 emotion-server@^9.2.9:
   version "9.2.12"
@@ -8818,6 +8817,8 @@ emotion-server@^9.2.9:
     create-emotion-server "^9.2.12"
 
 >>>>>>> chore(repo): remove unused packages (#3916)
+=======
+>>>>>>> perf(react-styles): remove emotion, fix types (#3886)
 emotion@^9.2.9:
   version "9.2.12"
   resolved "https://registry.yarnpkg.com/emotion/-/emotion-9.2.12.tgz#53925aaa005614e65c6e43db8243c843574d1ea9"
