@@ -42,7 +42,7 @@ exports[`AboutModalBoxCloseButton Test close button aria label 1`] = `
 <div
   className="pf-c-about-modal-box__close"
 >
-  <Component
+  <Button
     aria-label="Klose Daylok"
     onClick={[Function]}
     variant="plain"
@@ -53,7 +53,7 @@ exports[`AboutModalBoxCloseButton Test close button aria label 1`] = `
       size="sm"
       title={null}
     />
-  </Component>
+  </Button>
 </div>
 `;
 
