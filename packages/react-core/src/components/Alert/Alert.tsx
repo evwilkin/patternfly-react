@@ -74,11 +74,13 @@ export const Alert: React.FunctionComponent<AlertProps & OUIAProps> = ({
       })}
     >
       <AlertIcon variant={variant} />
-      <h4 className={css(styles.alertTitle)}>{readerTitle}</h4>
+      <h4 className={css(styles.alertTitle)}>{getHeadingContent}</h4>
       {children && <div className={css(styles.alertDescription)}>{children}</div>}
-      {action && (
-        <div className={css(styles.alertAction)}>{React.cloneElement(action as any, { title, variantLabel })}</div>
-      )}
+      <AlertContext.Provider value={{ title, variantLabel }}>
+        {action && (typeof action === 'object' || typeof action === 'string') && (
+          <div className={css(styles.alertAction)}>{action}</div>
+        )}
+      </AlertContext.Provider>
     </div>
   );
 };

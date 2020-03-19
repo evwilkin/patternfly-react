@@ -8,7 +8,7 @@ exports[`Alert - danger Action Close Button 1`] = `
       onClose={[MockFunction]}
     />
   }
-  title=""
+  title="Sample danger alert"
   variant="danger"
 >
   <div
@@ -713,7 +713,7 @@ exports[`Alert - default Action Close Button 1`] = `
       onClose={[MockFunction]}
     />
   }
-  title=""
+  title="Sample default alert"
   variant="default"
 >
   <div
@@ -1418,7 +1418,7 @@ exports[`Alert - info Action Close Button 1`] = `
       onClose={[MockFunction]}
     />
   }
-  title=""
+  title="Sample info alert"
   variant="info"
 >
   <div
@@ -2123,7 +2123,7 @@ exports[`Alert - success Action Close Button 1`] = `
       onClose={[MockFunction]}
     />
   }
-  title=""
+  title="Sample success alert"
   variant="success"
 >
   <div
@@ -2828,7 +2828,7 @@ exports[`Alert - warning Action Close Button 1`] = `
       onClose={[MockFunction]}
     />
   }
-  title=""
+  title="Sample warning alert"
   variant="warning"
 >
   <div
