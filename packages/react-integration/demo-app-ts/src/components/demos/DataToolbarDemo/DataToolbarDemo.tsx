@@ -4,6 +4,8 @@ import {
   ButtonVariant,
   DataToolbar,
   DataToolbarItem,
+  DataToolbarChip,
+  DataToolbarChipGroup,
   DataToolbarContent,
   DataToolbarFilter,
   DataToolbarToggleGroup,
@@ -96,11 +98,12 @@ export class DataToolbarDemo extends React.Component<DataToolbarProps, DataToolb
     this.onSelect('risk', event, selection);
   };
 
-  onDelete = (type = '', id = '') => {
+  onDelete = (type: string | DataToolbarChipGroup = '', id: DataToolbarChip | string = '') => {
     if (type) {
+      const lowercaseType = typeof type === 'string' ? type.toLowerCase() : type.name.toLowerCase();
       this.setState(prevState => {
         const newState = Object.assign(prevState);
-        newState.filters[type.toLowerCase()] = newState.filters[type.toLowerCase()].filter((s: string) => s !== id);
+        newState.filters[lowercaseType] = newState.filters[lowercaseType].filter((s: string) => s !== id);
         return {
           filters: newState.filters
         };

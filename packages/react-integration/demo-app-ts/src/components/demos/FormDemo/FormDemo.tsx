@@ -6,6 +6,7 @@ import {
   TextInput,
   Select,
   SelectOption,
+  SelectOptionObject,
   SelectVariant,
   ValidatedOptions
 } from '@patternfly/react-core';
@@ -43,9 +44,9 @@ export class FormDemo extends Component<FormProps, FormState> {
       isOpen
     });
   };
-  onSelect = (event: React.SyntheticEvent, selection: string) => {
+  onSelect = (event: React.MouseEvent | React.ChangeEvent, selection: string | SelectOptionObject) => {
     const { selected } = this.state;
-    if (selected.includes(selection)) {
+    if (selected.includes(selection.toString())) {
       this.setState(
         prevState => ({ selected: prevState.selected.filter(item => item !== selection) }),
         // eslint-disable-next-line no-console
@@ -53,7 +54,7 @@ export class FormDemo extends Component<FormProps, FormState> {
       );
     } else {
       this.setState(
-        prevState => ({ selected: [...prevState.selected, selection] }),
+        prevState => ({ selected: [...prevState.selected, selection.toString()] }),
         // eslint-disable-next-line no-console
         () => console.log('selections: ', this.state.selected)
       );
@@ -108,6 +109,7 @@ export class FormDemo extends Component<FormProps, FormState> {
               <span id={titleId} hidden>
                 Select a state
               </span>
+              {/* onSelect?: (event: React.MouseEvent | React.ChangeEvent, value: string | SelectOptionObject, isPlaceholder?: boolean) */}
               <Select
                 id={this.props.id}
                 variant={SelectVariant.typeaheadMulti}

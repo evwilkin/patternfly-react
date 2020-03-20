@@ -200,7 +200,11 @@ export class SelectDemo extends Component<SelectDemoState> {
     });
   };
 
-  singleOnSelect = (_event: React.MouseEvent | React.ChangeEvent, selection: string, isPlaceholder: boolean) => {
+  singleOnSelect = (
+    event: React.MouseEvent | React.ChangeEvent,
+    selection: string | SelectOptionObject,
+    isPlaceholder?: boolean
+  ) => {
     if (isPlaceholder) {
       this.clearSelection();
     } else {
@@ -213,9 +217,9 @@ export class SelectDemo extends Component<SelectDemoState> {
   };
 
   disabledSingleOnSelect = (
-    _event: React.MouseEvent | React.ChangeEvent,
-    selection: string,
-    isPlaceholder: boolean
+    event: React.MouseEvent | React.ChangeEvent,
+    selection: string | SelectOptionObject,
+    isPlaceholder?: boolean
   ) => {
     if (isPlaceholder) {
       this.clearSelection();
@@ -244,16 +248,16 @@ export class SelectDemo extends Component<SelectDemoState> {
     }
   };
 
-  checkOnSelect = (_event: React.MouseEvent | React.ChangeEvent, selection: string) => {
+  checkOnSelect = (event: React.MouseEvent | React.ChangeEvent, selection: string | SelectOptionObject) => {
     const { checkSelected } = this.state;
-    if (checkSelected.includes(selection)) {
+    if (checkSelected.includes(selection.toString())) {
       this.setState(
         (prevState: SelectDemoState) => ({ checkSelected: prevState.checkSelected.filter(item => item !== selection) }),
         () => console.log('selections: ', this.state.checkSelected)
       );
     } else {
       this.setState(
-        (prevState: SelectDemoState) => ({ checkSelected: [...prevState.checkSelected, selection] }),
+        (prevState: SelectDemoState) => ({ checkSelected: [...prevState.checkSelected, selection.toString()] }),
         () => console.log('selections: ', this.state.checkSelected)
       );
     }
@@ -275,9 +279,9 @@ export class SelectDemo extends Component<SelectDemoState> {
     }
   };
 
-  typeaheadMultiOnSelect = (_event: React.MouseEvent | React.ChangeEvent, selection: string) => {
+  typeaheadMultiOnSelect = (event: React.MouseEvent | React.ChangeEvent, selection: string | SelectOptionObject) => {
     const { typeaheadMultiSelected } = this.state;
-    if (typeaheadMultiSelected.includes(selection)) {
+    if (typeaheadMultiSelected.includes(selection.toString())) {
       this.setState(
         (prevState: SelectDemoState) => ({
           typeaheadMultiSelected: prevState.typeaheadMultiSelected.filter(item => item !== selection)
@@ -286,15 +290,17 @@ export class SelectDemo extends Component<SelectDemoState> {
       );
     } else {
       this.setState(
-        (prevState: SelectDemoState) => ({ typeaheadMultiSelected: [...prevState.typeaheadMultiSelected, selection] }),
+        (prevState: SelectDemoState) => ({
+          typeaheadMultiSelected: [...prevState.typeaheadMultiSelected, selection.toString()]
+        }),
         () => console.log('selections: ', this.state.typeaheadMultiSelected)
       );
     }
   };
 
-  cdtypeaheadMultiOnSelect = (_event: React.MouseEvent | React.ChangeEvent, selection: string) => {
+  cdtypeaheadMultiOnSelect = (event: React.MouseEvent | React.ChangeEvent, selection: string | SelectOptionObject) => {
     const { cdtypeaheadMultiSelected } = this.state;
-    if (cdtypeaheadMultiSelected.includes(selection)) {
+    if (cdtypeaheadMultiSelected.includes(selection.toString())) {
       this.setState(
         (prevState: SelectDemoState) => ({
           cdtypeaheadMultiSelected: prevState.cdtypeaheadMultiSelected.filter(item => item !== selection)
@@ -304,16 +310,19 @@ export class SelectDemo extends Component<SelectDemoState> {
     } else {
       this.setState(
         (prevState: SelectDemoState) => ({
-          cdtypeaheadMultiSelected: [...prevState.cdtypeaheadMultiSelected, selection]
+          cdtypeaheadMultiSelected: [...prevState.cdtypeaheadMultiSelected, selection.toString()]
         }),
         () => console.log('selections: ', this.state.cdtypeaheadMultiSelected)
       );
     }
   };
 
-  plainTypeaheadMultiOnSelect = (_event: React.MouseEvent | React.ChangeEvent, selection: string) => {
+  plainTypeaheadMultiOnSelect = (
+    event: React.MouseEvent | React.ChangeEvent,
+    selection: string | SelectOptionObject
+  ) => {
     const { plainTypeaheadMultiSelected } = this.state;
-    if (plainTypeaheadMultiSelected.includes(selection)) {
+    if (plainTypeaheadMultiSelected.includes(selection.toString())) {
       this.setState(
         (prevState: SelectDemoState) => ({
           plainTypeaheadMultiSelected: prevState.plainTypeaheadMultiSelected.filter(item => item !== selection)
@@ -323,16 +332,19 @@ export class SelectDemo extends Component<SelectDemoState> {
     } else {
       this.setState(
         (prevState: SelectDemoState) => ({
-          plainTypeaheadMultiSelected: [...prevState.plainTypeaheadMultiSelected, selection]
+          plainTypeaheadMultiSelected: [...prevState.plainTypeaheadMultiSelected, selection.toString()]
         }),
         () => console.log('selections: ', this.state.plainTypeaheadMultiSelected)
       );
     }
   };
 
-  customTypeaheadMultiOnSelect = (_event: React.MouseEvent | React.ChangeEvent, selection: string) => {
+  customTypeaheadMultiOnSelect = (
+    event: React.MouseEvent | React.ChangeEvent,
+    selection: string | SelectOptionObject
+  ) => {
     const { customTypeaheadMultiSelected } = this.state;
-    if (customTypeaheadMultiSelected.includes(selection)) {
+    if (customTypeaheadMultiSelected.includes(selection.toString())) {
       this.setState(
         (prevState: SelectDemoState) => ({
           customTypeaheadMultiSelected: prevState.customTypeaheadMultiSelected.filter(item => item !== selection)
@@ -342,7 +354,7 @@ export class SelectDemo extends Component<SelectDemoState> {
     } else {
       this.setState(
         (prevState: SelectDemoState) => ({
-          customTypeaheadMultiSelected: [...prevState.customTypeaheadMultiSelected, selection]
+          customTypeaheadMultiSelected: [...prevState.customTypeaheadMultiSelected, selection.toString()]
         }),
         () => console.log('selections: ', this.state.customTypeaheadMultiSelected)
       );
