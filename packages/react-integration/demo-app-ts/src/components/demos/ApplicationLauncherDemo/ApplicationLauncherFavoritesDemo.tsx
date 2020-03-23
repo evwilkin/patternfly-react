@@ -16,7 +16,7 @@ export class ApplicationLauncherFavoritesDemo extends React.Component<null, Appl
   state: ApplicationLauncherFavoritesDemoState = {
     isOpen: false,
     favorites: [],
-    filteredItems: null
+    filteredItems: []
   };
 
   appLauncherItems = [
@@ -70,7 +70,7 @@ export class ApplicationLauncherFavoritesDemo extends React.Component<null, Appl
   onSearch = (textInput: string) => {
     if (textInput === '') {
       this.setState({
-        filteredItems: null
+        filteredItems: []
       });
     } else {
       const filteredGroups = this.appLauncherItems
@@ -93,7 +93,7 @@ export class ApplicationLauncherFavoritesDemo extends React.Component<null, Appl
         .filter(newGroup => newGroup);
 
       if (filteredGroups.length > 0) {
-        let lastGroup = filteredGroups.pop();
+        let lastGroup: any = filteredGroups.pop();
         lastGroup = React.cloneElement(lastGroup, {
           children: lastGroup.props.children.filter((item: JSX.Element) => item.type !== ApplicationLauncherSeparator)
         });

@@ -20,7 +20,7 @@ export class AlertGroupDemo extends React.Component<null, AlertGroupDemoState> {
     super(props as null);
     this.state = {
       alerts: [],
-      timer: null
+      timer: 0
     };
     this.stopAsyncAlerts = () => {
       clearInterval(this.state.timer);

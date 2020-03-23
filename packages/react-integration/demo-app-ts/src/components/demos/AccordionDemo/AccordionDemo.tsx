@@ -2,7 +2,7 @@ import React from 'react';
 import { Accordion, AccordionItem, AccordionContent, AccordionToggle } from '@patternfly/react-core';
 
 interface AccordionDemoState {
-  expanded: string;
+  expanded: string | null;
 }
 
 export class AccordionDemo extends React.Component<null, AccordionDemoState> {
