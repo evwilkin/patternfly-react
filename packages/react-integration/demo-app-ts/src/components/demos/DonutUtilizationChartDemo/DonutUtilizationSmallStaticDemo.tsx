@@ -13,12 +13,12 @@ export class DonutUtilizationSmallStaticDemo extends React.Component {
           <ChartDonutThreshold
             data={[{ x: 'Warning at 60%', y: 60 }, { x: 'Danger at 90%', y: 90 }]}
             height={175}
-            labels={({ datum }) => (datum.x ? datum.x : null)}
+            labels={({ datum }) => (datum.x ? datum.x : '')}
             width={175}
           >
             <ChartDonutUtilization
               data={{ x: 'Storage capacity', y: 45 }}
-              labels={({ datum }) => (datum.x ? `${datum.x}: ${datum.y}%` : null)}
+              labels={({ datum }) => (datum.x ? `${datum.x}: ${datum.y}%` : '')}
               subTitle="of 100 GBps"
               title="45%"
             />

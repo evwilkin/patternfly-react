@@ -39,7 +39,7 @@ export class DonutUtilizationSimpleRightGreenDemo extends React.Component<{}, { 
             constrainToVisibleArea
             data={{ x: 'Storage capacity', y: used }}
             height={300}
-            labels={({ datum }) => (datum.x ? `${datum.x}: ${datum.y}%` : null)}
+            labels={({ datum }) => (datum.x ? `${datum.x}: ${datum.y}%` : '')}
             legendData={[{ name: `Storage capacity: ${spacer}${used}%` }, { name: 'Unused' }]}
             legendOrientation="vertical"
             legendPosition="bottom"

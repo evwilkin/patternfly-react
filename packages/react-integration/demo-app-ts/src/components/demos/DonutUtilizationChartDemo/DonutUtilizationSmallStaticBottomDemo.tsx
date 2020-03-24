@@ -16,7 +16,7 @@ export class DonutUtilizationSmallStaticBottomDemo extends React.Component {
             constrainToVisibleArea
             data={[{ x: 'Warning at 60%', y: 60 }, { x: 'Danger at 90%', y: 90 }]}
             height={275}
-            labels={({ datum }) => (datum.x ? datum.x : null)}
+            labels={({ datum }) => (datum.x ? datum.x : '')}
             legendPosition="bottom"
             padding={{
               bottom: 50, // Adjusted to accommodate legend
@@ -28,7 +28,7 @@ export class DonutUtilizationSmallStaticBottomDemo extends React.Component {
           >
             <ChartDonutUtilization
               data={{ x: 'Storage capacity', y: 45 }}
-              labels={({ datum }) => (datum.x ? `${datum.x}: ${datum.y}%` : null)}
+              labels={({ datum }) => (datum.x ? `${datum.x}: ${datum.y}%` : '')}
               legendData={[
                 { name: `Storage capacity: 45%` },
                 { name: 'Warning threshold at 60%' },

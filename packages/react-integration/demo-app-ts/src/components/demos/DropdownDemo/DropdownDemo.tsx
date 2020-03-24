@@ -23,14 +23,14 @@ interface DropdownState {
 
 export class DropdownDemo extends React.Component<{}, DropdownState> {
   onToggle: (isOpen: boolean) => void;
-  onSelect: (event: React.SyntheticEvent<HTMLDivElement>) => void;
+  onSelect: (event: React.SyntheticEvent<HTMLDivElement, Event>) => void;
   onFocus: () => void;
   onActionToggle: (isOpen: boolean) => void;
-  onActionSelect: (event: React.SyntheticEvent<HTMLDivElement>) => void;
+  onActionSelect: (event: React.SyntheticEvent<HTMLDivElement, Event>) => void;
   onActionClick: (event: React.SyntheticEvent<HTMLButtonElement>) => void;
   onActionFocus: () => void;
   onCogToggle: (isOpen: boolean) => void;
-  onCogSelect: (event: React.SyntheticEvent<HTMLDivElement>) => void;
+  onCogSelect: (event: React.SyntheticEvent<HTMLDivElement, Event>) => void;
   onCogClick: (event: React.SyntheticEvent<HTMLButtonElement>) => void;
   onCogFocus: () => void;
 
@@ -54,8 +54,8 @@ export class DropdownDemo extends React.Component<{}, DropdownState> {
       this.onFocus();
     };
     this.onFocus = () => {
-      const element = document.getElementById('toggle-id');
-      element.focus();
+      const element: HTMLElement | null = document.getElementById('toggle-id');
+      element && element.focus();
     };
 
     this.onActionToggle = isActionOpen => {
@@ -76,8 +76,8 @@ export class DropdownDemo extends React.Component<{}, DropdownState> {
       console.log('Action clicked!');
     };
     this.onActionFocus = () => {
-      const element = document.getElementById('action-toggle-id');
-      element.focus();
+      const element: HTMLElement | null = document.getElementById('action-toggle-id');
+      element && element.focus();
     };
 
     this.onCogToggle = isCogOpen => {
@@ -103,8 +103,8 @@ export class DropdownDemo extends React.Component<{}, DropdownState> {
       console.log('Cog clicked!');
     };
     this.onCogFocus = () => {
-      const element = document.getElementById('cog-toggle-id');
-      element.focus();
+      const element: HTMLElement | null = document.getElementById('cog-toggle-id');
+      element && element.focus();
     };
   }
 

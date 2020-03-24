@@ -369,9 +369,9 @@ export class SelectDemo extends Component<SelectDemoState> {
 
   clearSelection = () => {
     this.setState({
-      singleSelected: null,
-      singleisOpen: false,
-      disabledSingleisOpen: null,
+      singleSelected: '',
+      singleIsExpanded: false,
+      disabledSingleIsExpanded: null,
       disabledSingleSelected: '',
       customSingleSelected: null,
       customSingleisOpen: false,

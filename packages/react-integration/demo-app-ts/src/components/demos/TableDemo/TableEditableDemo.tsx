@@ -198,7 +198,7 @@ export class TableEditableDemo extends React.Component<TableProps, { columns: (I
     window.scrollTo(0, 0);
   }
 
-  updateEditableRows: OnRowEdit = (evt, type, isEditable, rowIndex, validationErrors) => {
+  updateEditableRows: OnRowEdit = (evt, type, isEditable, rowIndex = 0, validationErrors) => {
     const newRows = Array.from(this.state.rows);
 
     if (validationErrors && Object.keys(validationErrors).length) {
