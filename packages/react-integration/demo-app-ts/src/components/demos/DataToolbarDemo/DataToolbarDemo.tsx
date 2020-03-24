@@ -75,7 +75,7 @@ export class DataToolbarDemo extends React.Component<DataToolbarProps, DataToolb
     this.setState({ inputValue: newValue });
   };
 
-  onSelect = (type: string, event, selection: string | SelectOptionObject) => {
+  onSelect = (type: keyof Filter, event, selection: string | SelectOptionObject) => {
     const checked = event.target.checked;
     this.setState(prevState => {
       const prevSelections = prevState.filters[type];
