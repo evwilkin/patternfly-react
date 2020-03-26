@@ -228,7 +228,10 @@ export class TableEditableDemo extends React.Component<TableProps, { columns: (I
 
   handleTextInputChange = (newValue: string, evt: React.FormEvent, rowIndex: number, cellIndex: number) => {
     const newRows = Array.from(this.state.rows);
-    (newRows[rowIndex].cells[cellIndex] as IRowCell).props.editableValue = newValue;
+    const rowCells = newRows[rowIndex].cells;
+    if (rowCells) {
+      (rowCells[cellIndex] as IRowCell).props.editableValue = newValue;
+    }
     this.setState({
       rows: newRows
     });

@@ -56,18 +56,18 @@ export class FilteringSelectDemo extends Component<FilteringSelectDemoState> {
     if (textInput === '') {
       return this.options;
     } else {
-      return this.options
-        .map((group: React.ReactElement) => {
-          const filteredGroup = React.cloneElement(group, {
-            children: group.props.children.filter((item: React.ReactElement) =>
-              item.props.value.toLowerCase().includes(textInput.toLowerCase())
-            )
-          });
-          if (filteredGroup.props.children.length > 0) {
-            return filteredGroup;
-          }
-        })
-        .filter(newGroup => newGroup);
+      return this.options.map((group: React.ReactElement) => {
+        const filteredGroup = React.cloneElement(group, {
+          children: group.props.children.filter((item: React.ReactElement) =>
+            item.props.value.toLowerCase().includes(textInput.toLowerCase())
+          )
+        });
+        if (filteredGroup.props.children.length > 0) {
+          return filteredGroup;
+        } else {
+          return <></>;
+        }
+      });
     }
   };
 

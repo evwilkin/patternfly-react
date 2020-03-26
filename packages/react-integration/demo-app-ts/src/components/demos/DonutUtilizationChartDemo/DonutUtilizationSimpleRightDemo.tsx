@@ -5,7 +5,7 @@ export class DonutUtilizationSimpleRightDemo extends React.Component<{}, { used:
   interval: number;
 
   constructor(props: {}) {
-    super(props as null);
+    super(props);
     this.state = {
       spacer: '',
       used: 0

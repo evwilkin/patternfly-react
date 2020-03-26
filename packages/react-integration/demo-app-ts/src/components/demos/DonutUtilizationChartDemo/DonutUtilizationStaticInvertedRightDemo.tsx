@@ -4,7 +4,7 @@ import { ChartDonutThreshold, ChartDonutUtilization } from '@patternfly/react-ch
 export class DonutUtilizationStaticInvertedRightDemo extends React.Component<{}, { used: number; spacer: string }> {
   interval: number;
   constructor(props: {}) {
-    super(props as null);
+    super(props);
     this.state = {
       spacer: '',
       used: 100

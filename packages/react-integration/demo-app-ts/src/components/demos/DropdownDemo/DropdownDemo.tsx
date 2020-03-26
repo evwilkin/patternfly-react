@@ -23,14 +23,14 @@ interface DropdownState {
 
 export class DropdownDemo extends React.Component<{}, DropdownState> {
   onToggle: (isOpen: boolean) => void;
-  onSelect: (event: React.SyntheticEvent<HTMLDivElement, Event>) => void;
+  onSelect: (event?: React.SyntheticEvent<HTMLDivElement, Event>) => void;
   onFocus: () => void;
   onActionToggle: (isOpen: boolean) => void;
-  onActionSelect: (event: React.SyntheticEvent<HTMLDivElement, Event>) => void;
+  onActionSelect: (event?: React.SyntheticEvent<HTMLDivElement, Event>) => void;
   onActionClick: (event: React.SyntheticEvent<HTMLButtonElement>) => void;
   onActionFocus: () => void;
   onCogToggle: (isOpen: boolean) => void;
-  onCogSelect: (event: React.SyntheticEvent<HTMLDivElement, Event>) => void;
+  onCogSelect: (event?: React.SyntheticEvent<HTMLDivElement, Event>) => void;
   onCogClick: (event: React.SyntheticEvent<HTMLButtonElement>) => void;
   onCogFocus: () => void;
 

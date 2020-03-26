@@ -22,7 +22,7 @@ export interface FormState {
 
 export class FormDemo extends Component<FormProps, FormState> {
   constructor(props: {}) {
-    super(props as null);
+    super(props);
     this.state = {
       value: 'Five',
       isValid: false,

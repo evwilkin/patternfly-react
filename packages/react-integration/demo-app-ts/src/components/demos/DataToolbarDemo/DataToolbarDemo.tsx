@@ -31,7 +31,7 @@ import SyncIcon from '@patternfly/react-icons/dist/js/icons/sync-icon';
 interface Filter {
   risk: string[];
   status: string[];
-  key?: string[];
+  key: string[];
 }
 
 interface DataToolbarState {
@@ -53,7 +53,8 @@ export class DataToolbarDemo extends React.Component<DataToolbarProps, DataToolb
       riskisOpen: false,
       filters: {
         risk: ['Low'],
-        status: ['New', 'Pending']
+        status: ['New', 'Pending'],
+        key: ['']
       },
       kebabIsOpen: false
     };
@@ -75,8 +76,13 @@ export class DataToolbarDemo extends React.Component<DataToolbarProps, DataToolb
     this.setState({ inputValue: newValue });
   };
 
-  onSelect = (type: keyof Filter, event, selection: string | SelectOptionObject) => {
-    const checked = event.target.checked;
+  onSelect = (
+    type: keyof Filter,
+    event: React.MouseEvent | React.ChangeEvent,
+    selection: string | SelectOptionObject
+  ) => {
+    const selectedTarget = event.target as HTMLInputElement;
+    const checked = selectedTarget.checked;
     this.setState(prevState => {
       const prevSelections = prevState.filters[type];
       return {
@@ -112,7 +118,8 @@ export class DataToolbarDemo extends React.Component<DataToolbarProps, DataToolb
       this.setState({
         filters: {
           risk: [],
-          status: []
+          status: [],
+          key: []
         }
       });
     }

@@ -16,8 +16,8 @@ import { State } from '../../../common/State';
 
 /* eslint-disable no-console */
 interface TypeAheadOption {
-  value?: string;
-  disabled?: boolean;
+  value: string;
+  disabled: boolean;
 }
 
 export interface SelectDemoState {
@@ -235,7 +235,7 @@ export class SelectDemo extends Component<SelectDemoState> {
   customSingleOnSelect = (
     _event: React.MouseEvent | React.ChangeEvent,
     selection: string | SelectOptionObject | (string | SelectOptionObject)[],
-    isPlaceholder: boolean
+    isPlaceholder?: boolean
   ) => {
     if (isPlaceholder) {
       this.clearSelection();
@@ -266,7 +266,7 @@ export class SelectDemo extends Component<SelectDemoState> {
   typeaheadOnSelect = (
     _event: React.MouseEvent | React.ChangeEvent,
     selection: string | SelectOptionObject | (string | SelectOptionObject)[],
-    isPlaceholder: boolean
+    isPlaceholder?: boolean
   ) => {
     if (isPlaceholder) {
       this.clearSelection();
@@ -363,7 +363,7 @@ export class SelectDemo extends Component<SelectDemoState> {
 
   typeaheadCreateNew = (newValue: string) => {
     this.setState({
-      typeaheadOptions: [...this.state.typeaheadOptions, { value: newValue }]
+      typeaheadOptions: [...this.state.typeaheadOptions, { value: newValue, disabled: false }]
     });
   };
 
@@ -371,14 +371,14 @@ export class SelectDemo extends Component<SelectDemoState> {
     this.setState({
       singleSelected: '',
       singleIsExpanded: false,
-      disabledSingleIsExpanded: null,
+      disabledSingleIsExpanded: false,
       disabledSingleSelected: '',
-      customSingleSelected: null,
-      customSingleisOpen: false,
+      customSingleSelected: '',
+      customSingleIsExpanded: false,
       checkSelected: [],
-      checkisOpen: false,
-      typeaheadSelected: null,
-      typeaheadisOpen: false,
+      checkIsExpanded: false,
+      typeaheadSelected: '',
+      typeaheadIsExpanded: false,
       typeaheadMultiSelected: [],
       typeaheadMultiisOpen: false,
       cdtypeaheadMultiisOpen: false,
