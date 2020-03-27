@@ -38,7 +38,11 @@ export class DemoSortableTable extends React.Component<DemoSortableTableProps, D
         'Workspaces',
         'Last Commit'
       ],
-      rows: [this.props.firstColumnRows, ['a', 'two', 'k', 'four', 'five'], ['p', 'two', 'b', 'four', 'five']],
+      rows: [
+        this.props.firstColumnRows ? this.props.firstColumnRows : [''],
+        ['a', 'two', 'k', 'four', 'five'],
+        ['p', 'two', 'b', 'four', 'five']
+      ],
       sortBy: {}
     };
   }

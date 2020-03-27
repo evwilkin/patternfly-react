@@ -1,5 +1,16 @@
 import * as React from 'react';
-import { Table, TableHeader, TableBody, TableProps, headerCol, ICell, IRow, IActions } from '@patternfly/react-table';
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableProps,
+  headerCol,
+  ICell,
+  IRow,
+  IActions,
+  IRowData,
+  IExtraData
+} from '@patternfly/react-table';
 
 // eslint-disable-next-line @typescript-eslint/interface-name-prefix
 interface ITableState {
@@ -35,19 +46,22 @@ export class TableSimpleActionsDemo extends React.Component<TableProps, ITableSt
         /* eslint-disable @typescript-eslint/no-unused-vars, no-console */
         {
           title: 'Some action',
-          onClick: (event, rowId, rowData, extra) => console.log('clicked on Some action, on row: ', rowId)
+          onClick: (event: React.MouseEvent, rowId: number, rowData: IRowData, extra: IExtraData) =>
+            console.log('clicked on Some action, on row: ', rowId)
         },
         {
           title: 'Another action',
-          onClick: (event, rowId, rowData, extra) => console.log('clicked on Another action, on row: ', rowId)
+          onClick: (event: React.MouseEvent, rowId: number, rowData: IRowData, extra: IExtraData) =>
+            console.log('clicked on Another action, on row: ', rowId)
         },
         {
           isSeparator: true,
-          onClick: (event, rowId, rowData, extra) => null
+          onClick: (event: React.MouseEvent, rowId: number, rowData: IRowData, extra: IExtraData) => null
         },
         {
           title: 'Third action',
-          onClick: (event, rowId, rowData, extra) => console.log('clicked on Third action, on row: ', rowId)
+          onClick: (event: React.MouseEvent, rowId: number, rowData: IRowData, extra: IExtraData) =>
+            console.log('clicked on Third action, on row: ', rowId)
         }
         /* eslint-enable @typescript-eslint/no-unused-vars, no-console */
       ]
