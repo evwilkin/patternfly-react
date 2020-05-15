@@ -17,10 +17,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "strict": true,
-    "strictPropertyInitialization": false,
-    "strictNullChecks": false,
-    "strictFunctionTypes": false,
+    "strict": true
   },
   "include": [
     "src"

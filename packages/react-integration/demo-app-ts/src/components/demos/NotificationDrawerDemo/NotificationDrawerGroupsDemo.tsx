@@ -73,7 +73,7 @@ export class GroupsNotificationDrawerDemo extends React.Component<
   onFocus = (id: string) => {
     if (id) {
       const element = document.getElementById(id);
-      element.focus();
+      element && element.focus();
     }
   };
 
