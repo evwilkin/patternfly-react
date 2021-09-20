@@ -36,6 +36,7 @@ export interface SVGIconProps extends Omit<React.HTMLProps<SVGElement>, 'size' |
   size?: IconSize | keyof typeof IconSize;
   title?: string;
   noVerticalAlign?: boolean;
+  isSquareIcon?: boolean;
 }
 
 let currentId = 0;
@@ -56,13 +57,14 @@ export function createIcon({
     static defaultProps = {
       color: 'currentColor',
       size: IconSize.sm,
-      noVerticalAlign: false
+      noVerticalAlign: false,
+      isSquareIcon: true
     };
 
     id = `icon-title-${currentId++}`;
 
     render() {
-      const { size, color, title, noVerticalAlign, ...props } = this.props;
+      const { size, color, title, noVerticalAlign, isSquareIcon, ...props } = this.props;
 
       const hasTitle = Boolean(title);
       const heightWidth = getSize(size);
@@ -75,7 +77,7 @@ export function createIcon({
           style={style}
           fill={color}
           height={heightWidth}
-          width={heightWidth}
+          width={isSquareIcon ? heightWidth : null}
           viewBox={viewBox}
           aria-labelledby={hasTitle ? this.id : null}
           aria-hidden={hasTitle ? null : true}
