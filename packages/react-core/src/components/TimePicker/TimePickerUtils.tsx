@@ -1,7 +1,13 @@
 export const amSuffix = ' AM';
 export const pmSuffix = ' PM';
 
-export const makeTimeOptions = (stepMinutes: number, hour12: boolean, delimiter: string) => {
+export const makeTimeOptions = (
+  stepMinutes: number,
+  hour12: boolean,
+  delimiter: string
+  // minTime: string | Date,
+  // maxTime: string | Date
+) => {
   const res = [];
   const iter = new Date(new Date().setHours(0, 0, 0, 0));
   const iterDay = iter.getDay();
@@ -78,10 +84,24 @@ export const parseTime = (time: string | Date, timeRegex: RegExp, delimiter: str
   return time.toString();
 };
 
-export const validateTime = (time: string, timeRegex: RegExp, delimiter: string, is12Hour: boolean) => {
+export const validateTime = (
+  time: string,
+  timeRegex: RegExp,
+  delimiter: string,
+  is12Hour: boolean
+  // minTime: string | Date,
+  // maxTime: string | Date
+) => {
+  // const hasMinTime = Boolean(minTime);
+  // const hasMaxTime = Boolean(maxTime);
+  // const minTimeString = minTime instanceof Date ? minTime.toTimeString() : new Date(minTime).toTimeString();
+  // const maxTimeString = maxTime instanceof Date ? maxTime.toTimeString() : new Date(maxTime).toTimeString();
   // ISO 8601 format is valid
   const date = new Date(time);
-  if (!isNaN(date.getDate()) && time.includes('T')) {
+  if (
+    !isNaN(date.getDate()) &&
+    time.includes('T') /* && (hasMinTime && date.toTimeString() >= minTimeDate.toTimeString()) */
+  ) {
     return true;
   }
   // hours only valid if they are [0-23] or [1-12]

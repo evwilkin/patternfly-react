@@ -50,6 +50,10 @@ export interface TimePickerProps
   stepMinutes?: number;
   /** Additional props for input field */
   inputProps?: TextInputProps;
+  /** Minimum valid time (string). The format could be  an ISO 8601 formatted date string or in 'HH{delimiter}MM' format */
+  minTime?: string | Date;
+  /** Maximum valid time (string). The format could be  an ISO 8601 formatted date string or in 'HH{delimiter}MM' format */
+  maxTime?: string | Date;
 }
 
 interface TimePickerState {
@@ -81,7 +85,9 @@ export class TimePicker extends React.Component<TimePickerProps, TimePickerState
     direction: 'down',
     width: 150,
     stepMinutes: 30,
-    inputProps: {}
+    inputProps: {},
+    minTime: '',
+    maxTime: ''
   };
 
   constructor(props: TimePickerProps) {
@@ -257,8 +263,8 @@ export class TimePicker extends React.Component<TimePickerProps, TimePickerState
     if (this.props.validateTime) {
       return this.props.validateTime(time);
     }
-    const { delimiter, is24Hour } = this.props;
-    return validateTime(time, this.state.timeRegex, delimiter, !is24Hour);
+    const { delimiter, is24Hour, minTime, maxTime } = this.props;
+    return validateTime(time, this.state.timeRegex, delimiter, !is24Hour, minTime, maxTime);
   };
 
   onToggle = (isOpen: boolean) => {
@@ -337,12 +343,14 @@ export class TimePicker extends React.Component<TimePickerProps, TimePickerState
       onChange,
       time,
       validateTime,
+      minTime,
+      maxTime,
       inputProps,
       ...props
     } = this.props;
     const { timeState, isOpen, isInvalid, focusedIndex } = this.state;
     const style = { '--pf-c-date-picker__input--c-form-control--Width': width } as React.CSSProperties;
-    const options = makeTimeOptions(stepMinutes, !is24Hour, delimiter);
+    const options = makeTimeOptions(stepMinutes, !is24Hour, delimiter /* , minTime, maxTime */);
     const randomId = id || getUniqueId('time-picker');
 
     const menuContainer = (
