@@ -1,0 +1,51 @@
+- generic [ref=e3]:
+  - 'heading "PF-3907: Overflow Tabs in Resizable Drawer" [level=1] [ref=e4]'
+  - navigation [ref=e5]:
+    - 'button "Example 1: Scroll Overflow" [ref=e6] [cursor=pointer]'
+    - 'button "Example 2: Horizontal Overflow" [ref=e7] [cursor=pointer]'
+    - 'button "Example 3: Smart Width" [ref=e8] [cursor=pointer]'
+  - generic [ref=e81]:
+    - button "Toggle drawer" [expanded] [ref=e82] [cursor=pointer]:
+      - generic [ref=e83]: Toggle drawer
+    - button "Fewer tabs (5 total)" [active] [ref=e124] [cursor=pointer]:
+      - generic [ref=e85]: Fewer tabs (5 total)
+    - generic [ref=e86]:
+      - text: "Calculated width:"
+      - strong [ref=e87]: 746px
+  - generic [ref=e89]:
+    - generic [ref=e91]:
+      - paragraph [ref=e92]:
+        - strong [ref=e93]: "Instructions:"
+        - text: The drawer width is automatically calculated to fit all tabs. Click "Add more tabs" to see the width adjust. You can still drag-resize, and tabs will adapt thanks to the ResizeObserver fix.
+      - paragraph [ref=e94]:
+        - strong [ref=e95]: "How it works:"
+        - text: Tabs are rendered in a hidden off-screen container. After paint, we measure total tab width and set the drawer's
+        - code [ref=e96]: defaultSize
+        - text: accordingly, clamped between 250px and 900px.
+    - generic [ref=e97]:
+      - separator "Resize" [ref=e98]
+      - generic [ref=e101]:
+        - generic [ref=e102]:
+          - generic [ref=e103]: Chat Configuration
+          - button "Close drawer panel" [ref=e106] [cursor=pointer]:
+            - img [ref=e108]
+        - generic [ref=e110]:
+          - region "Tabs in smart-width resizable drawer" [ref=e111]:
+            - tablist [ref=e112]:
+              - tab "Model" [selected] [ref=e113] [cursor=pointer]:
+                - generic [ref=e114]: Model
+              - tab "Prompt" [ref=e115] [cursor=pointer]:
+                - generic [ref=e116]: Prompt
+              - tab "Knowledge" [ref=e117] [cursor=pointer]:
+                - generic [ref=e118]: Knowledge
+              - tab "MCP" [ref=e119] [cursor=pointer]:
+                - generic [ref=e120]: MCP
+              - tab "Parameters" [ref=e121] [cursor=pointer]:
+                - generic [ref=e122]: Parameters
+              - tab "History" [ref=e125] [cursor=pointer]:
+                - generic [ref=e126]: History
+              - tab "Evaluation" [ref=e127] [cursor=pointer]:
+                - generic [ref=e128]: Evaluation
+              - tab "Export" [ref=e129] [cursor=pointer]:
+                - generic [ref=e130]: Export
+          - tabpanel "Model" [ref=e123]: Model configuration panel

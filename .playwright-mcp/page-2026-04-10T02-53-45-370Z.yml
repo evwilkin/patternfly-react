@@ -1,0 +1,45 @@
+- generic [ref=e3]:
+  - 'heading "PF-3907: Overflow Tabs in Resizable Drawer" [level=1] [ref=e4]'
+  - navigation [ref=e5]:
+    - 'button "Example 1: Scroll Overflow" [ref=e6] [cursor=pointer]'
+    - 'button "Example 2: Horizontal Overflow" [ref=e7] [cursor=pointer]'
+    - 'button "Example 3: Smart Width" [ref=e8] [cursor=pointer]'
+  - generic [ref=e9]:
+    - button "Toggle drawer" [expanded] [ref=e10] [cursor=pointer]:
+      - generic [ref=e11]: Toggle drawer
+    - generic [ref=e12] [cursor=pointer]:
+      - switch "ResizeObserver fix enabled" [checked] [ref=e13]
+      - generic [ref=e15]: ResizeObserver fix enabled
+  - generic [ref=e17]:
+    - generic [ref=e19]:
+      - paragraph [ref=e20]:
+        - strong [ref=e21]: "Instructions:"
+        - text: Drag the drawer splitter to resize. With the fix disabled, scroll buttons become stale — tabs may appear scrollable when they fit, or scroll buttons may disappear when tabs overflow. Enable the fix to see correct behavior.
+      - paragraph [ref=e22]: Main content area. The drawer panel contains tabs that demonstrate default overflow (scroll button) behavior within a resizable container.
+    - generic [ref=e23]:
+      - separator "Resize" [ref=e24]
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]: Chat Configuration
+          - button "Close drawer panel" [ref=e32] [cursor=pointer]:
+            - img [ref=e34]
+        - generic [ref=e36]:
+          - region "Tabs in resizable drawer with scroll overflow" [ref=e37]:
+            - tablist [ref=e38]:
+              - tab "Model" [selected] [ref=e39] [cursor=pointer]:
+                - generic [ref=e40]: Model
+              - tab "Prompt" [ref=e41] [cursor=pointer]:
+                - generic [ref=e42]: Prompt
+              - tab "Knowledge" [ref=e43] [cursor=pointer]:
+                - generic [ref=e44]: Knowledge
+              - tab "MCP" [ref=e45] [cursor=pointer]:
+                - generic [ref=e46]: MCP
+              - tab "Parameters" [ref=e47] [cursor=pointer]:
+                - generic [ref=e48]: Parameters
+              - tab "History" [ref=e49] [cursor=pointer]:
+                - generic [ref=e50]: History
+              - tab "Evaluation" [ref=e51] [cursor=pointer]:
+                - generic [ref=e52]: Evaluation
+              - tab "Export" [ref=e53] [cursor=pointer]:
+                - generic [ref=e54]: Export
+          - tabpanel "Model" [ref=e55]: Model configuration panel

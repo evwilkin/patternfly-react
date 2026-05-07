@@ -1,0 +1,51 @@
+- generic [ref=e3]:
+  - 'heading "PF-3907: Overflow Tabs in Resizable Drawer" [level=1] [ref=e4]'
+  - navigation [ref=e5]:
+    - 'button "Example 1: Scroll Overflow" [ref=e6] [cursor=pointer]'
+    - 'button "Example 2: Horizontal Overflow" [ref=e7] [cursor=pointer]'
+    - 'button "Example 3: Smart Width" [ref=e8] [cursor=pointer]'
+  - generic [ref=e9]:
+    - button "Toggle drawer" [expanded] [ref=e10] [cursor=pointer]:
+      - generic [ref=e11]: Toggle drawer
+    - generic [ref=e12] [cursor=pointer]:
+      - switch "ResizeObserver fix disabled (shows bug)" [active] [ref=e81]
+      - generic [ref=e15]: ResizeObserver fix disabled (shows bug)
+  - generic [ref=e17]:
+    - generic [ref=e19]:
+      - paragraph [ref=e20]:
+        - strong [ref=e21]: "Instructions:"
+        - text: Drag the drawer splitter to resize. With the fix disabled, scroll buttons become stale — tabs may appear scrollable when they fit, or scroll buttons may disappear when tabs overflow. Enable the fix to see correct behavior.
+      - paragraph [ref=e22]: Main content area. The drawer panel contains tabs that demonstrate default overflow (scroll button) behavior within a resizable container.
+    - generic [ref=e23]:
+      - separator "Resize" [ref=e24]
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]: Chat Configuration
+          - button "Close drawer panel" [ref=e32] [cursor=pointer]:
+            - img [ref=e34]
+        - generic [ref=e36]:
+          - region "Tabs in resizable drawer with scroll overflow" [ref=e82]:
+            - generic [ref=e83]:
+              - button [disabled]:
+                - generic:
+                  - img
+            - tablist [ref=e84]:
+              - tab "Model" [selected] [ref=e85] [cursor=pointer]:
+                - generic [ref=e86]: Model
+              - tab "Prompt" [ref=e87] [cursor=pointer]:
+                - generic [ref=e88]: Prompt
+              - tab "Knowledge" [ref=e89] [cursor=pointer]:
+                - generic [ref=e90]: Knowledge
+              - tab "MCP" [ref=e91] [cursor=pointer]:
+                - generic [ref=e92]: MCP
+              - tab "Parameters" [ref=e93] [cursor=pointer]:
+                - generic [ref=e94]: Parameters
+              - tab "History" [ref=e95] [cursor=pointer]:
+                - generic [ref=e96]: History
+              - tab "Evaluation" [ref=e97] [cursor=pointer]:
+                - generic [ref=e98]: Evaluation
+              - tab "Export" [ref=e99] [cursor=pointer]:
+                - generic [ref=e100]: Export
+            - button "Scroll forward" [ref=e102] [cursor=pointer]:
+              - img [ref=e104]
+          - tabpanel "Model" [ref=e106]: Model configuration panel

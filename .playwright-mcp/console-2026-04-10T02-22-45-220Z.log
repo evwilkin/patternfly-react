@@ -1,0 +1,8 @@
+[     112ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5199/node_modules/.vite/deps/chunk-QXLG2TGQ.js?v=4ae79cf2:21606
+[     195ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5199/favicon.ico:0
+[  409498ms] [LOG] scroll-overflow-panel resized to: 106px @ http://localhost:5199/src/drawer-tabs-scroll-overflow.tsx:55
+[  922778ms] [ERROR] WebSocket connection to 'ws://localhost:5199/?token=3te9M-QXHmIK' failed:  @ http://localhost:5199/@vite/client:801
+[  922778ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:5199/@vite/client:963
+[  922827ms] [ERROR] WebSocket connection to 'ws://localhost:5199/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:5199/@vite/client:1034
+[  923829ms] [ERROR] WebSocket connection to 'ws://localhost:5199/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:5199/@vite/client:1034
+[  925139ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5199/node_modules/.vite/deps/chunk-QXLG2TGQ.js?v=d4b31209:21606

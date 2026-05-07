@@ -1,0 +1,41 @@
+- generic [ref=e3]:
+  - 'heading "PF-3907: Overflow Tabs in Resizable Drawer" [level=1] [ref=e4]'
+  - navigation [ref=e5]:
+    - 'button "Example 1: Scroll Overflow" [ref=e6] [cursor=pointer]'
+    - 'button "Example 2: Horizontal Overflow" [active] [ref=e7] [cursor=pointer]'
+    - 'button "Example 3: Smart Width" [ref=e8] [cursor=pointer]'
+  - generic [ref=e56]:
+    - button "Toggle drawer" [expanded] [ref=e57] [cursor=pointer]:
+      - generic [ref=e58]: Toggle drawer
+    - generic [ref=e59] [cursor=pointer]:
+      - switch "ResizeObserver fix enabled" [checked] [ref=e60]
+      - generic [ref=e62]: ResizeObserver fix enabled
+  - generic [ref=e64]:
+    - generic [ref=e66]:
+      - paragraph [ref=e67]:
+        - strong [ref=e68]: "Instructions:"
+        - text: Drag the drawer splitter to resize. The "More (N)" dropdown should update its count as the panel width changes. With the fix disabled, the count becomes stale or incorrect after resizing. Enable the fix to see the count adapt in real-time.
+      - paragraph [ref=e69]:
+        - text: This example uses
+        - code [ref=e70]: isOverflowHorizontal
+        - text: which renders excess tabs in a dropdown menu instead of scroll buttons — often a better fit for narrow drawer panels.
+    - generic [ref=e71]:
+      - separator "Resize" [ref=e72]
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - generic [ref=e77]: Chat Configuration
+          - button "Close drawer panel" [ref=e80] [cursor=pointer]:
+            - img [ref=e82]
+        - generic [ref=e84]:
+          - region "Tabs in resizable drawer with horizontal overflow" [ref=e85]:
+            - tablist [ref=e86]:
+              - tab "Model" [selected] [ref=e87] [cursor=pointer]:
+                - generic [ref=e88]: Model
+              - tab "Prompt" [ref=e89] [cursor=pointer]:
+                - generic [ref=e90]: Prompt
+              - tab "Knowledge" [ref=e91] [cursor=pointer]:
+                - generic [ref=e92]: Knowledge
+              - tab "More (5)" [ref=e93] [cursor=pointer]:
+                - generic [ref=e94]: More (5)
+                - img [ref=e96]
+          - tabpanel "Model" [ref=e98]: Model configuration panel
